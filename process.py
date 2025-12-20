@@ -39,19 +39,23 @@ def transform_description(account_row, members):
             if keyword in account_row["memo"]:
                 eprint(f"Warning: '{account_row['memo']}' is hard-coded in raw 메모.")
 
-        return account_row["memo"]
+        if account_row["memo"] == "":
+            return account_row["description"]
+        else:
+            return account_row["memo"]
 
 def main():
     # parse arguments
-    if len(sys.argv) != 2:
-        print("Usage: python process.py <input>")
+    if len(sys.argv) != 3:
+        print("Usage: python process.py <input> <members>")
         sys.exit(1)
 
     input_filename = sys.argv[1]
+    members_filename = sys.argv[2]
 
     # read data
     account: list[dict] = do_or_exit(read_account, input_filename, task_label="reading account data")
-    members: list[dict] = do_or_exit(read_members, "members.csv", task_label="reading members data")
+    members: list[dict] = do_or_exit(read_members, members_filename, task_label="reading members data")
 
     # print markdown table & collect 넬비낸 members
     회비낸 = []
