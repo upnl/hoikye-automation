@@ -11,5 +11,5 @@
 4. 유피넬 홈페이지에서 멤버목록을 모두 긁어와 CSV로 저장한다.
 5. 멤버목록은 `process.py` 파일 옆에 `members.csv`로 저장한다.
 6. 다음 명령어로 실행한다. 외부 패키지는 설치할 필요 없다. macOS brew Python 3.12.4에서 테스트함.
-    `python process.py /path/to/거래내역.csv`
+    `python process.py /path/to/거래내역.csv /path/to/member.csv`
 7. 출력결과를 참고하여 회계기록을 작성한다.
